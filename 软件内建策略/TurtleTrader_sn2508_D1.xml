@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<App>
+  <TradeUnit xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" UnitName="sn2508_D1" PreFix="TurtleTrader" UnitVersion="1.0.0.0" TradeLock="false" RunLock="false" Expand="false" RefUnitID="">
+    <Goods>
+      <G RefID="939bc4ac-3930-44e6-b009-1d817ca7823b" lBeginTime="0" lEndTime="0">
+        <GoodsSetting Source="User" Display="On" GoodsName="沪锡2508">
+          <DataRangeSetting FinishedStart="1724256000000" FinishedEnd="1751212800000" SampleValue="8000" SampleRangeUnit="Day" SampleUnitValue="1" EnableSampleEndDate="false">
+            <DataRange RangeType="SAMPLESIZE" RangeUnit="0" RangeValue="8000" Term="Day" NValue="1" EnableNValue="false">
+              <GoodsKey Goods="sn2508" Category="CategoryFutures" Exchange="SHFE" nCodeID="-1578372645259155292" />
+            </DataRange>
+          </DataRangeSetting>
+          <TradeSetting LongMargin="12" ShortMargin="12" CurrentPercent="0" MarginFlag="PercentOfTotalAccount" CommissionFlag="AccountByNum" CommissionOpen="4.5" CommissionClose="4.5" CommissionCloseToday="4.5" SlipPointMode="PointByNum" SlipPointValue="1" />
+          <MappingSetting MappingMode="None">
+            <MappingGoods />
+          </MappingSetting>
+          <DelegateSetting EnableMarketPrice="false" OrderPriceType="ORDER_PRICE_OPP" MarketStep="0" />
+          <AimSetting AimType="Speculate" />
+          <KChartGoodsDataSetting eFormerRights="None" eKChartDataRange="All" EnableCC="false" EnableKCutTradeTime="false" KCutTradeTimeFlag="Normal" EnableKCutShowEndTime="false" DataSourceType="ByUser" IsAutoSwapPosition="false" />
+          <GoodsLineSetting KLineType="Hollow" CurrentKLineStyle="Nagative" Is3DStyle="false">
+            <NagativeLineStyle KLineStyle="Nagative" KLineColorHtml="#FFFF5858" />
+            <PositiveLineStyle KLineStyle="Positive" KLineColorHtml="#FF00FFFF" />
+            <NShadowLineStyle KLineStyle="NShadow" KLineColorHtml="#FFFF5858" />
+            <PShadowLineStyle KLineStyle="PShadow" KLineColorHtml="#FF00FFFF" />
+          </GoodsLineSetting>
+          <AlgoTradeSetting EnableAlgo="false" HaveInited="false">
+            <Template TemplateName="tempTemplate" RunMinNum="10" bSingleOrHandicap="true" SingleNum="1" SingleRange="1" HandicapPercent="0" OrderPriceType="ORDER_PRICE_OPP" OffsetHops="0" bOrderDependency="false" MinOrderHandicaps="50" bTimeDependency="true" OrderSpan="5" OrderSpanRange="0" TotalTime="60" eTotalTimeLimit="CurrentDay" bTakeActionsWhenHarmful="false" MinHarmfulHops="0" bStopOrAccelerateWhenHarmful="true" bTakeActionsWhenBenefit="false" MinBenefitHops="0" bStopOrAccelerateWhenBenefit="true" bChildReOrderWhenHarmful="false" ChildReOrderPriceType="ORDER_PRICE_LATEST" MinChildReOrderHarmfulHops="1" bCanAlgoTrade="false" bAutoKP="false">
+              <nBidAskTicks>0</nBidAskTicks>
+            </Template>
+          </AlgoTradeSetting>
+        </GoodsSetting>
+      </G>
+    </Goods>
+    <Formular>
+      <F>
+        <TacticSetting Enabled="true" Loaded="false" bShow="true" EnableWarn="false" WarnType="0" WarnSettingID="0" WarnTimes="-1" SerVarRefCount="0" dWeight="1">
+          <IsSelectedAllGoodsByDisplayStatus>false</IsSelectedAllGoodsByDisplayStatus>
+          <Layers />
+          <Master IsHavePlotInfo="false" Code="TurtleTrader" Author="" Name="海龟交易系统" ShowMode="Main" ScaleMode="Relative" MaxBarBack="0" TacticsCategory="Formular" TacticsType="EStrategyType_EmbedFormula" IsFromDrawLine="false" FuncRetType="ReturnType_VOID" IsSrcCodeEmpty="false" IsSrcCodeInvisible="false" IsSightLess="false" IsHasTradeFunc="true" IsHasPickStokeFunc="false" GroupName="交易策略">
+            <NativeStrategyKey>
+              <author />
+              <strName>TurtleTrader</strName>
+              <type>EStrategyType_EmbedFormula</type>
+            </NativeStrategyKey>
+          </Master>
+          <Parameters>
+            <Parameter Name="nEntries" DataType="DataType_Numeric" Value="3" Notes="最大建仓次数" IsMust="false" IsHide="false">
+              <Enums />
+            </Parameter>
+            <Parameter Name="RiskRatio" DataType="DataType_Numeric" Value="0.5" Notes="% Risk Per N ( 0 - 100)" IsMust="false" IsHide="false">
+              <Enums />
+            </Parameter>
+            <Parameter Name="ATRLength" DataType="DataType_Numeric" Value="14" Notes="平均波动周期 ATR Length" IsMust="false" IsHide="false">
+              <Enums />
+            </Parameter>
+            <Parameter Name="boLength" DataType="DataType_Numeric" Value="20" Notes="短周期 BreakOut Length" IsMust="false" IsHide="false">
+              <Enums />
+            </Parameter>
+            <Parameter Name="fsLength" DataType="DataType_Numeric" Value="55" Notes="长周期 FailSafe Length" IsMust="false" IsHide="false">
+              <Enums />
+            </Parameter>
+            <Parameter Name="teLength" DataType="DataType_Numeric" Value="10" Notes="离市周期 Trailing Exit Length" IsMust="false" IsHide="false">
+              <Enums />
+            </Parameter>
+            <Parameter Name="LastProfitableTradeFilter" DataType="DataType_Bool" Value="true" Notes="使用入市过滤条件" IsMust="false" IsHide="false">
+              <Enums />
+            </Parameter>
+          </Parameters>
+          <Lines />
+          <Deal TacticsID="0" UserTacticsID="0" ShowTradeLine="true" TradeLineStyle="LineType_Dashed" TradeLineWidth="1" LoseColorHtml="#FF00FF00" WinColorHtml="#FFFF0000" />
+          <Symbles>
+            <Symble TacticsID="0" UserTacticsID="0" SymbleID="Buy" SymbleStyleID="1" SymbleStyleColorHtml="#FFFFFF00" PriceStyleID="1" PriceStyleColorHtml="#FFFFFF00" Flag="ShowTradeNum" />
+            <Symble TacticsID="0" UserTacticsID="0" SymbleID="Sell" SymbleStyleID="1" SymbleStyleColorHtml="#FFFFFF00" PriceStyleID="1" PriceStyleColorHtml="#FFFFFF00" Flag="ShowTradeNum" />
+            <Symble TacticsID="0" UserTacticsID="0" SymbleID="SellShort" SymbleStyleID="1" SymbleStyleColorHtml="#FFFF00FF" PriceStyleID="1" PriceStyleColorHtml="#FFFF00FF" Flag="ShowTradeNum" />
+            <Symble TacticsID="0" UserTacticsID="0" SymbleID="BuyToCover" SymbleStyleID="1" SymbleStyleColorHtml="#FFFF00FF" PriceStyleID="1" PriceStyleColorHtml="#FFFF00FF" Flag="ShowTradeNum" />
+          </Symbles>
+          <OptimizeParamters />
+        </TacticSetting>
+      </F>
+    </Formular>
+    <StrategyTradeSetting>
+      <BaseAccountSetting Equity="20000000" Rate="1" />
+      <BindAccounts />
+      <TradeSetting VolType="TRADE_VOLUMN_TYPE_VOL" Vol="1" IniMargin="20000000" IgnoreHistorySignal="false" SignalBeginMillSecTime="0" EnableSignalBeginBar="false" SignalBeginBar="1" EnableMaxTradeCount="false" MaxTradeCount="-1" AllowOpenOnEnd="false" MaxOpenOnEndNum="0" MaxPositionNum="200" CalExpandWhenOpti="true" NumForAverDrawdownCal="5" RptByReturnRate="false" RptIncLossOutGain="false" ZXSPDefault="95" ZXSPSampleSizeDefault="10000" />
+    </StrategyTradeSetting>
+    <ProgramTradeSetting>
+      <IgnoreSetting IgnoreBuy="false" IgnoreSell="false" IgnoreSellShort="false" IgnoreBuyToCover="false" />
+      <ExSetting OrderUserConfirm="false" StrategyShowDialog="false" SendMsgToApp="false" />
+      <UnitSetting IniMargin="20000000" />
+    </ProgramTradeSetting>
+  </TradeUnit>
+</App>
